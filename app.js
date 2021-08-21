@@ -57,6 +57,7 @@ const cardArray=[
 const grid =document.querySelector('.grid')
 var cardsChosen =[] //array of cards chosen
 let cardsChosenID =[]//pushed card array
+let cardsWon=[] //chosen cards to be stored here
 
 //create the board
 function createBoard(){
@@ -71,7 +72,18 @@ function createBoard(){
 }
 
 //check for match
+function checkForMatch(){
+    let cards = document.querySelectorAll('img')
+    const optionOneId =cardsChosenID[0]
+    const optionTwoId =cardsChosenID[1]
+    if(cardsChosen[0] ===cardsChosen[1]){
+        alert('you found a match!')
+        cards[optionOneId].setAttribute('src', 'images/white.png')//white img if it is a match
+        cards[optionTwoId].setAttribute('src', 'images/white.png')
+        cardsWon.push(cardsChosen)
 
+    }else
+}
 
 
 //flip card
@@ -80,6 +92,11 @@ function flipcard(){
     cardsChosen.push(cardArray[cardID].name)//push the card from array based on its ID and get its name
     cardsChosenID.push(cardID)//give the CardID
     this.setAttribute('src',cardArray[cardID].img)//add a img based on the square and the ID it holds
+
+//only allow macthing cards to be stored
+if(cardsChosen.length===2){
+    setTimeout(checkForMatch, 500)//check for a match after 5ms
+}
 }
 
 
