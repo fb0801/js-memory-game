@@ -1,6 +1,11 @@
 /*import other files for us to use*/
 /*different colours to use*/
 /*Media queries*/
+.game-title {
+  text-align: center;
+  color: #ff652f;
+}
+
 .grid {
   display: flex;
   flex-wrap: wrap;

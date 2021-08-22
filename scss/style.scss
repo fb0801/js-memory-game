@@ -2,7 +2,10 @@
 @import 'config';
 
 
-
+.game-title{
+    text-align: center;
+    color: $forth-color;
+}
 
 .grid{
     display: flex;
