@@ -81,8 +81,14 @@ function checkForMatch(){
     const cards = document.querySelectorAll('img')
     const optionOneId = cardsChosenID[0]
     const optionTwoId = cardsChosenID[1]
+    if (optionOneId == optionTwoId){
+        //prevent the user from clicking the same card
+        cards[optionOneId].setAttribute('src','images/blank.png')
+        cards[optionTwoId].setAttribute('src','images/blank.png')
 
-    if(cardsChosen[0] ===cardsChosen[1]){
+        alert('you have chosen the same card silly')
+}
+    else if(cardsChosen[0] ===cardsChosen[1]){
         alert('you found a match!')
         cards[optionOneId].setAttribute('src', 'images/white.png')//white img if it is a match
         cards[optionTwoId].setAttribute('src', 'images/white.png')
@@ -105,7 +111,7 @@ function checkForMatch(){
 
 
 //flip card
-function flipcard(){
+function flipCard(){
     let cardID = this.getAttribute('data-id')
     cardsChosen.push(cardArray[cardID].name)//push the card from array based on its ID and get its name
     cardsChosenID.push(cardID)//give the CardID
